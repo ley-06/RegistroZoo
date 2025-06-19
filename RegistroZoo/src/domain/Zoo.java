@@ -7,6 +7,7 @@
 package domain;
 
 import java.util.ArrayList;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import utils.UtilsAnimal;
 
@@ -50,4 +51,13 @@ public class Zoo {
 //        [] String listaEspecies = newString
 //    }
     //listar todos animales
+    public void obtenerListadoAnimales(ArrayList<Animal> listado, JList lista){
+        
+        Animal [] listData = new Animal[listado.size()];
+        for (int i = 0; i < listado.size(); i++) {
+            listData[i] = listado.get(i);
+            
+        }
+        lista.setListData(listData);
+    }
 }
