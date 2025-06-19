@@ -6,17 +6,21 @@
 
 package views;
 
+import domain.Animal;
+import domain.Zoo;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Leydi
  */
 public class Form extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Form
-     */
+    ArrayList<Animal> listado = null;
+    Zoo zoo = new Zoo();
     public Form() {
         initComponents();
+        
     }
 
     /**
@@ -47,6 +51,7 @@ public class Form extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Formulario Animal");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -187,6 +192,31 @@ public class Form extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
+        String id = textID.getText().trim();
+        String nombre = textNombre.getText().trim();
+        String especie = textEspecie.getText().trim();
+        String dieta = textDieta.getText().trim();
+        String edad = textEdad.getText().trim();
+        String habitat = textHabitat.getText().trim();
+        
+        if(id.equals("") || nombre.equals("") || especie.equals("") || dieta.equals("") || edad.equals("") || habitat.equals("")){
+            JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
+        }else{
+            if(Integer.parseInt(edad)>0 && Integer.parseInt(edad)<= 100){
+                Animal a = new Animal(id, nombre, especie, dieta, Integer.parseInt(edad), habitat);
+                zoo.addAnimal(listado, a);
+
+                //vaciar campos
+                textID.setText("");
+                textNombre.setText("");
+                textEspecie.setText("");
+                textDieta.setText("");
+                textEdad.setText("");
+                textHabitat.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "Edad no valida");
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

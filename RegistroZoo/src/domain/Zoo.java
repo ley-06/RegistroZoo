@@ -87,4 +87,9 @@ public class Zoo {
         
         tabla.setModel(modelo);
     }
+    
+    
+    //obtener listado especies Jcvombobox, arrayList, Jtable
+    
+    //metodo obtener listado de especies String [] listaEspecies
 }

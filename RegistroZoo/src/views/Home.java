@@ -231,6 +231,7 @@ public class Home extends javax.swing.JFrame {
 
     private void addAnimalBarraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalBarraActionPerformed
         Form formulario = new Form();
+        formulario.listado = listadoAnimales;
         formulario.setVisible(true);
     }//GEN-LAST:event_addAnimalBarraActionPerformed
 

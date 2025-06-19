@@ -8,6 +8,7 @@ package utils;
 
 import domain.Animal;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,7 @@ public class UtilsAnimal {
     public boolean idEnUso(ArrayList<Animal> listado, String id){
         for(Animal a: listado){
             if(a.getId().equals(id)){
+                JOptionPane.showMessageDialog(null, "ID: " + id + " ya esta en uso");
                 return true;
             }
         }
