@@ -33,13 +33,12 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
-        jSeparator1 = new javax.swing.JSeparator();
         addAnimalBarra = new javax.swing.JButton();
         btnListarEspecie = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         listaEspecies = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
+        label1 = new java.awt.Label();
         jPanel2 = new javax.swing.JPanel();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -56,10 +55,6 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        label1.setAlignment(java.awt.Label.CENTER);
-        label1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label1.setText("Opciones");
-
         addAnimalBarra.setText("Agregar Animal");
         addAnimalBarra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +63,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         btnListarEspecie.setText("Listar Por Especie");
+        btnListarEspecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarEspecieActionPerformed(evt);
+            }
+        });
 
         btnActualizar.setText("Actualizar Listado");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,38 +76,40 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        listaEspecies.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leydi Fea" }));
+        listaEspecies.setModel(new javax.swing.DefaultComboBoxModel(new String[]{""}));
         listaEspecies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaEspeciesActionPerformed(evt);
             }
         });
 
+        label1.setAlignment(java.awt.Label.CENTER);
+        label1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label1.setText("Opciones");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator1)
             .addComponent(addAnimalBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnListarEspecie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
             .addComponent(listaEspecies, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator2)
+            .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addAnimalBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(btnListarEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(listaEspecies, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,9 +218,11 @@ public class Home extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -226,14 +230,8 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        System.exit(1);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void addAnimalBarraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalBarraActionPerformed
-        Form formulario = new Form();
-        formulario.listado = listadoAnimales;
-        formulario.setVisible(true);
-    }//GEN-LAST:event_addAnimalBarraActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         Form formulario = new Form();
@@ -247,22 +245,34 @@ public class Home extends javax.swing.JFrame {
         zoo.obtenerListadoAnimales(listadoAnimales, tablaAnimales);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void listaEspeciesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEspeciesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaEspeciesActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        zoo.obtenerListadoAnimales(listadoAnimales, tablaAnimales);
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         Form formulario = new Form();
+        formulario.listado = listadoAnimales;
         formulario.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void tablaAnimalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaAnimalesMouseClicked
         System.out.println(tablaAnimales.getSelectedRow());
     }//GEN-LAST:event_tablaAnimalesMouseClicked
+
+    private void listaEspeciesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEspeciesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaEspeciesActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        zoo.obtenerListadoAnimales(listadoAnimales, tablaAnimales);
+        zoo.obtenerListaEspecies(listaEspecies, listadoAnimales);
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnListarEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEspecieActionPerformed
+        zoo.listarPorEspecie(listadoAnimales, tablaAnimales, listaEspecies.getSelectedItem().toString());
+    }//GEN-LAST:event_btnListarEspecieActionPerformed
+
+    private void addAnimalBarraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalBarraActionPerformed
+        Form formulario = new Form();
+        formulario.listado = listadoAnimales;
+        formulario.setVisible(true);
+    }//GEN-LAST:event_addAnimalBarraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,10 +325,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private java.awt.Label label1;
-    public javax.swing.JComboBox listaEspecies;
+    private javax.swing.JComboBox listaEspecies;
     public javax.swing.JTable tablaAnimales;
     // End of variables declaration//GEN-END:variables
 }

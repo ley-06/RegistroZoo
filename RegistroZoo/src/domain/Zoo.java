@@ -7,6 +7,9 @@
 package domain;
 
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -90,6 +93,50 @@ public class Zoo {
     
     
     //obtener listado especies Jcvombobox, arrayList, Jtable
+    public void obtenerListaEspecies(JComboBox combo, ArrayList<Animal> listado){
+        ArrayList<String> especies = new ArrayList<>();
+        
+        if(!listado.isEmpty()){
+            for(Animal a: listado){
+                if(!especies.contains(a.getEspecie())){
+                    especies.add(a.getEspecie());
+                }
+            }
+        }
+        if(!especies.isEmpty()){
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel(especies.toArray());
+            combo.setModel(modelo);
+        }
+    }
     
     //metodo obtener listado de especies String [] listaEspecies
+    
+    public void listarPorEspecie(ArrayList<Animal> listado, JTable tabla, String especie){
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        modelo.addColumn("Id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Especie");
+        modelo.addColumn("Dieta");
+        modelo.addColumn("Edad");
+        modelo.addColumn("Habitat");
+        
+        tabla.setModel(modelo);
+        
+        String [] data = new String[6];
+        
+        for (int i = 0; i < listado.size(); i++) {
+            if(listado.get(i).getEspecie().equals(especie)){
+                data[0] = listado.get(i).getId();
+                data[1] = listado.get(i).getNombre();
+                data[2] = listado.get(i).getEspecie();
+                data[3] = listado.get(i).getDieta();
+                data[4] = String.valueOf(listado.get(i).getEdad());
+                data[5] = listado.get(i).getHabitad();
+                modelo.addRow(data);
+            }
+        }
+        
+        tabla.setModel(modelo);
+    }
 }
