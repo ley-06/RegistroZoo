@@ -41,6 +41,13 @@ public class Zoo {
     }
     
     //editar info animal
+    public void editarAnimal(ArrayList<Animal> listado, Animal animalNuevo){
+        //obtener posicion animal antiguo
+        int pos = utils.obtenerPosicionPorId(listado, animalNuevo.getId());
+        
+        //modificar informacion antigua
+        listado.set(pos, animalNuevo);
+    }
     
     //eliminar animal
     public void eliminarAnimal(ArrayList<Animal> listado, JTable tabla){
@@ -51,17 +58,9 @@ public class Zoo {
             JOptionPane.showMessageDialog(tabla, "Eliminado correctamente");
         }else{
             JOptionPane.showMessageDialog(tabla, "Animal no seleccionado");
-        }
-        
+        }    
     }
     
-    //listar animales por especie
-    
-    //obtener lista de especies
-//    public [] String obtenerListadoEspecies(ArrayList<Animal> listado){
-//    
-//        [] String listaEspecies = newString
-//    }
     //listar todos animales
     public void obtenerListadoAnimales(ArrayList<Animal> listado, JTable tabla){
         

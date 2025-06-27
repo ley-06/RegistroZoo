@@ -53,34 +53,53 @@ public class Form extends javax.swing.JFrame {
         setTitle("Formulario Animal");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(82, 183, 136));
+
+        jLabel1.setBackground(new java.awt.Color(7, 59, 76));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ID:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(7, 59, 76));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Nombre:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(7, 59, 76));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Especie:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setBackground(new java.awt.Color(7, 59, 76));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Dieta:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setBackground(new java.awt.Color(7, 59, 76));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Edad:");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setBackground(new java.awt.Color(7, 59, 76));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Habitat:");
 
         label1.setAlignment(java.awt.Label.CENTER);
+        label1.setBackground(new java.awt.Color(45, 106, 79));
         label1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setText("Nuevo Animal");
 
+        btnGuardar.setBackground(new java.awt.Color(27, 67, 50));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +107,9 @@ public class Form extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(27, 67, 50));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancel.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,9 +186,9 @@ public class Form extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textHabitat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -203,16 +225,29 @@ public class Form extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
         }else{
             if(Integer.parseInt(edad)>0 && Integer.parseInt(edad)<= 100){
+                
                 Animal a = new Animal(id, nombre, especie, dieta, Integer.parseInt(edad), habitat);
-                zoo.addAnimal(listado, a);
+                
+                if(btnGuardar.getText().equals("Guardar")){
+                    
+                    //insertar animal
+                    zoo.addAnimal(listado, a);
 
-                //vaciar campos
-                textID.setText("");
-                textNombre.setText("");
-                textEspecie.setText("");
-                textDieta.setText("");
-                textEdad.setText("");
-                textHabitat.setText("");
+                    //vaciar campos
+                    textID.setText("");
+                    textNombre.setText("");
+                    textEspecie.setText("");
+                    textDieta.setText("");
+                    textEdad.setText("");
+                    textHabitat.setText(""); 
+                    
+                }else{
+                    zoo.editarAnimal(listado, a);
+                    this.dispose();
+                    
+                }
+                
+                
             }else{
                 JOptionPane.showMessageDialog(null, "Edad no valida");
             }
@@ -256,7 +291,7 @@ public class Form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -265,11 +300,11 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private java.awt.Label label1;
-    private javax.swing.JTextField textDieta;
-    private javax.swing.JTextField textEdad;
-    private javax.swing.JTextField textEspecie;
-    private javax.swing.JTextField textHabitat;
+    public javax.swing.JTextField textDieta;
+    public javax.swing.JTextField textEdad;
+    public javax.swing.JTextField textEspecie;
+    public javax.swing.JTextField textHabitat;
     public javax.swing.JTextField textID;
-    private javax.swing.JTextField textNombre;
+    public javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables
 }
